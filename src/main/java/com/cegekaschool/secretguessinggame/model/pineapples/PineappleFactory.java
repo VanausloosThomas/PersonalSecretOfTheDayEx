@@ -1,9 +1,12 @@
 package com.cegekaschool.secretguessinggame.model.pineapples;
 
+import com.cegekaschool.secretguessinggame.model.secrets.Secret;
+
 /**
  * Created by thomasva on 17/02/2017.
  */
 public class PineappleFactory {
-    public static Pineapple createPineapple() {
+    public  Pineapple createPineapple(String name, Secret secret) {
+        return new Pineapple(name, secret);
     }
 }
