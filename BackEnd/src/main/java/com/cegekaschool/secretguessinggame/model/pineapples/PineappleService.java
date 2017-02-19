@@ -1,5 +1,6 @@
 package com.cegekaschool.secretguessinggame.model.pineapples;
 
+import com.cegekaschool.secretguessinggame.model.exceptions.InvalidGuessException;
 import com.cegekaschool.secretguessinggame.model.exceptions.LoginFailedException;
 import com.cegekaschool.secretguessinggame.model.exceptions.PineappleAlreadyExistsException;
 
@@ -46,5 +47,18 @@ public class PineappleService {
             }
         }
         return false;
+    }
+
+    public void addGuess(String voter, String votee) throws InvalidGuessException {
+        // transform into two pineapples and place one in the other
+        Pineapple voterPineapple = pineappleRepository.getPineapple(voter);
+        Pineapple voteePineapple = pineappleRepository.getPineapple(votee);
+
+        if(voterPineapple == null || voteePineapple == null){
+
+            throw new InvalidGuessException("Invalid guess");
+
+        }
+        voterPineapple.setGuess(voteePineapple);
     }
 }

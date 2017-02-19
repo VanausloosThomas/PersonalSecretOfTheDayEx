@@ -9,7 +9,10 @@ public class GuessService {
 
      //@Inject
      private GuessRepository guessRepository = new GuessRepository(); // = new.. should be deleted when i get @Inject to work !
+    private  GuessFactory guessFactory = new GuessFactory();
 
 
-
+    public void createGuess(String voter, String votee) {
+        //guessFactory.createGuess(voter, votee);
+    }
 }

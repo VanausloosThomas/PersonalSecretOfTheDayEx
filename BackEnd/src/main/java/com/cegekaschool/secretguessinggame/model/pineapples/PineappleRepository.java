@@ -19,6 +19,15 @@ public class PineappleRepository {
         pineappleRepository.add(newPineapple);
     }
 
+    public Pineapple getPineapple(String userName){
+        for (Pineapple pineapple : pineappleRepository) {
+            if(pineapple.getName() == userName){
+                return pineapple;
+            }
+        }
+        return null;
+    }
+
     public List<Pineapple> getAllPineapples(){
 
         return  new ArrayList<Pineapple>(pineappleRepository);

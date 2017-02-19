@@ -1,6 +1,8 @@
 package com.cegekaschool.secretguessinggame.controller;
 
 import com.cegekaschool.secretguessinggame.model.exceptions.ExceptionMapper;
+import com.cegekaschool.secretguessinggame.model.exceptions.InvalidGuessException;
+import com.cegekaschool.secretguessinggame.model.exceptions.LoginFailedException;
 import com.cegekaschool.secretguessinggame.model.exceptions.PineappleAlreadyExistsException;
 import com.cegekaschool.secretguessinggame.model.game.GameService;
 import org.springframework.http.HttpStatus;
@@ -27,22 +29,36 @@ public class GameController {
         try {
             gameService.createNewUser(userName,userPassword);
         } catch (PineappleAlreadyExistsException e) {
-            mapper.mapException(e);
+            return mapper.mapException(e);
         }
         return HttpStatus.OK;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public HttpStatus login(@RequestParam(value = "userName", required = true) String userName ,
-                            @RequestParam(value = "userPassword", required = true) String userPassword){
+                            @RequestParam(value = "userPassword", required = true) String userPassword) {
 
-        gameService.login(userName,userPassword);
+        try {
+            gameService.login(userName, userPassword);
+        } catch (LoginFailedException e) {
+            return mapper.mapException(e);
+        }
+
+        return HttpStatus.OK;
     }
 
-    @RequestMapping(value = "/guess", method = RequestMethod.POST)
-    public HttpStatus createGuess(){
 
-        throw new NotImplementedException();
+    @RequestMapping(value = "/guess", method = RequestMethod.POST)
+    public HttpStatus createGuess(@RequestParam(value = "voter", required = true) String voter,
+                                  @RequestParam(value = "votee", required = true) String votee){
+
+        try {
+            gameService.createGuess(voter, votee);
+        } catch (InvalidGuessException e) {
+            return mapper.mapException(e);
+        }
+
+        return HttpStatus.OK;
     }
 
     @RequestMapping(value = "/secret", method = RequestMethod.POST)
@@ -57,7 +73,7 @@ public class GameController {
         throw new NotImplementedException();
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/win", method = RequestMethod.GET)
     public HttpStatus validateWin(){
 
         throw new NotImplementedException();

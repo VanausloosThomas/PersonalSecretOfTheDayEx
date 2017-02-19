@@ -11,6 +11,7 @@ public class Pineapple {
     private String name;
     private String password;
     private Secret secret;
+    private Pineapple guess;
 
 
     protected Pineapple(String name, String password) {
@@ -31,6 +32,14 @@ public class Pineapple {
 
     public void addSecret(Secret secret){
         this.secret = secret;
+    }
+
+    public Pineapple getGuess(){
+        return guess;
+    }
+
+    public  void setGuess(Pineapple guess){
+        this.guess = guess;
     }
 
 
