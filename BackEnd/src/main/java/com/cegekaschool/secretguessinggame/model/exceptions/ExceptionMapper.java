@@ -18,6 +18,9 @@ public class ExceptionMapper {
         if(ex.getClass() == PineappleAlreadyExistsException.class){
             return HttpStatus.ALREADY_REPORTED;
         }
+        if(ex.getClass() == LoginFailedException.class){
+            return HttpStatus.CONFLICT;
+        }
 
 
         return HttpStatus.OK;

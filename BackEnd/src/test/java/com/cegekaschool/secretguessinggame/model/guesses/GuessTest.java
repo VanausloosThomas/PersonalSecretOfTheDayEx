@@ -10,18 +10,4 @@ import org.junit.Test;
  */
 public class GuessTest {
 
-    @Test
-
-    public void guessFactory_CreatGuess_ReturnsGuess()  {
-
-        GuessFactory guessFactory = new GuessFactory();
-        PineappleFactory pineappleFactory = new PineappleFactory();
-        Pineapple pineapple1= PineappleFactory.createPineapple();
-        Pineapple pineapple2= PineappleFactory.createPineapple();
-
-
-
-
-    }
-
 }

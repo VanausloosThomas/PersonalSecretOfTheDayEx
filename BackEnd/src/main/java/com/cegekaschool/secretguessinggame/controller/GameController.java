@@ -15,7 +15,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  */
 
 @Controller
-@RequestMapping("/secretoftheday")
+@RequestMapping("http://Localhost:50000/secretoftheday")
 public class GameController {
 
     //@Inject

@@ -1,6 +1,5 @@
 package com.cegekaschool.secretguessinggame.model.pineapples;
 
-import com.cegekaschool.secretguessinggame.model.guesses.Guess;
 import com.cegekaschool.secretguessinggame.model.secrets.Secret;
 
 /**

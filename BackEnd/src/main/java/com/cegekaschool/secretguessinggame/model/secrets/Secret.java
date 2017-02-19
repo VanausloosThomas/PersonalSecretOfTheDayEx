@@ -10,4 +10,8 @@ public class Secret {
     ImageGraphicAttribute picture;
     String comment;
 
+    public Secret(ImageGraphicAttribute picture, String comment){
+        this.picture = picture;
+        this.comment = comment;
+    }
 }
