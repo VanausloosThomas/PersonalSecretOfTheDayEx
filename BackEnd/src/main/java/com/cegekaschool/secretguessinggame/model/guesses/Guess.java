@@ -15,6 +15,21 @@ public class Guess {
         this.votee = votee;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Guess guess = (Guess) o;
 
+        //We take only the voter into account! => the same voter should not have two guesses!
+        return voter.equals(guess.voter);
+
+    }
+
+    @Override
+    public int hashCode() {
+        //We take only the voter into account! => the same voter should not have two guesses!
+        return voter.hashCode();
+    }
 }
