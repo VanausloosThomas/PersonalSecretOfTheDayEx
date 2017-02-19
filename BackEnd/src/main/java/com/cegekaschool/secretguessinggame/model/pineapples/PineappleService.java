@@ -1,5 +1,6 @@
 package com.cegekaschool.secretguessinggame.model.pineapples;
 
+import com.cegekaschool.secretguessinggame.model.exceptions.LoginFailedException;
 import com.cegekaschool.secretguessinggame.model.exceptions.PineappleAlreadyExistsException;
 
 /**
@@ -28,5 +29,22 @@ public class PineappleService {
             }
         }
         return  false;
+    }
+
+    public void login(String userName, String userPassword) throws LoginFailedException{
+
+        if (!loginIsSucces(userName, userPassword)) {
+            throw new LoginFailedException("Username or password incorrect!");
+        }
+    }
+
+    private boolean loginIsSucces(String userName, String userPassword){
+        for (Pineapple pineapple : pineappleRepository.getAllPineapples()) {
+
+            if(pineapple.getName() == userName && pineapple.getPassword() == userPassword){
+                return true;
+            }
+        }
+        return false;
     }
 }

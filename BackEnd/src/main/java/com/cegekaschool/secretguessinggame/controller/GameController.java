@@ -33,9 +33,10 @@ public class GameController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public HttpStatus login(){
+    public HttpStatus login(@RequestParam(value = "userName", required = true) String userName ,
+                            @RequestParam(value = "userPassword", required = true) String userPassword){
 
-        throw new NotImplementedException();
+        gameService.login(userName,userPassword);
     }
 
     @RequestMapping(value = "/guess", method = RequestMethod.POST)

@@ -22,6 +22,9 @@ public class Pineapple {
         return new String(name);
     }
 
+    public String getPassword(){
+        return new String(password);
+    }
     public Secret getSecret() {
         return secret;
     }

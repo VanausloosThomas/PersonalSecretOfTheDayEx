@@ -18,4 +18,8 @@ public class GameService {
     public void createNewUser(String userName, String userPassword) throws PineappleAlreadyExistsException {
         pineappleService.createPineapple(userName,userPassword);
     }
+
+    public void login(String userName, String userPassword) {
+        pineappleService.login(userName,userPassword);
+    }
 }
