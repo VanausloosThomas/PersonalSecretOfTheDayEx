@@ -8,6 +8,7 @@ import com.cegekaschool.secretguessinggame.model.pineapples.PineappleService;
 /**
  * Created by Thomas on 19/02/2017.
  */
+
 public class GameService {
 
     private PineappleService pineappleService = new PineappleService();

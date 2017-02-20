@@ -23,5 +23,10 @@ namespace SecretOfTheDayGUI.Source.Controller
             bool succesFullPost = service.CreateNewUser(userName, userPassword);
             return succesFullPost;
         }
+
+        internal void init()
+        {
+            service.init();
+        }
     }
 }

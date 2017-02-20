@@ -2,12 +2,14 @@ package com.cegekaschool.secretguessinggame.model.pineapples;
 
 import com.cegekaschool.secretguessinggame.model.exceptions.PineappleAlreadyExistsException;
 
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Thomas on 19/02/2017.
  */
+@Named
 public class PineappleRepository {
 
     ArrayList<Pineapple> pineappleRepository = new ArrayList<>();

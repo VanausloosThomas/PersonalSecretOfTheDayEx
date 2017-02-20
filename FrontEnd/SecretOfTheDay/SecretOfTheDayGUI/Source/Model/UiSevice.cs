@@ -26,21 +26,24 @@ namespace SecretOfTheDayGUI.Source.Model
             return instance;
         }
 
+        internal void init()
+        {
+            SetUpServer(BASEADRESS);
+        }
+
         internal bool CreateNewUser(string userName, string userPassword)
         {
-            return Post("/new-user", userName, userPassword);
+            return PostUserInfo("/new-user", userName, userPassword);
         }
 
         internal bool Login(string userName, string userPassword)
         {
-            return Post("/login", userName, userPassword);
+            return PostUserInfo("/login", userName, userPassword);
         }
 
-        private bool Post(string additionToBaseAdress , string data1, string data2)
+        private bool PostUserInfo(string additionToBaseAdress , string data1, string data2)
         {
             bool isSucces = false;
-
-            SetUpServer(BASEADRESS);
 
             StringContent dataToSend = new StringContent(data1 + " " + data2);
             HttpResponseMessage response = server.PostAsync(server.BaseAddress + additionToBaseAdress, dataToSend).Result;

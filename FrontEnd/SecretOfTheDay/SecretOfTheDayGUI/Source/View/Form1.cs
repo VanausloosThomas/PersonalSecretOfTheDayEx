@@ -21,6 +21,7 @@ namespace SecretOfTheDayGUI
         public MainScreen()
         {
             InitializeComponent();
+            controller.init();
         }
 
         private void MainScreen_Load(object sender, EventArgs e)
