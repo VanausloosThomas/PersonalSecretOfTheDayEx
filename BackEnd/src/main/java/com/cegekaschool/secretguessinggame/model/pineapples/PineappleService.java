@@ -4,12 +4,14 @@ import com.cegekaschool.secretguessinggame.model.exceptions.InvalidGuessExceptio
 import com.cegekaschool.secretguessinggame.model.exceptions.LoginFailedException;
 import com.cegekaschool.secretguessinggame.model.exceptions.PineappleAlreadyExistsException;
 
+import javax.inject.Inject;
+
 /**
  * Created by Thomas on 19/02/2017.
  */
 public class PineappleService {
 
-    //@Inject
+    @Inject
     private PineappleRepository pineappleRepository = new PineappleRepository();
     private PineappleFactory pineappleFactory = new PineappleFactory();
 
