@@ -10,4 +10,13 @@ import org.junit.Test;
  */
 public class GuessTest {
 
+    @Test
+    public  void createGuess_returnsGuessClass(){
+        PineappleFactory pineappleFactory = new PineappleFactory();
+        Pineapple voter = pineappleFactory.createPineapple("aName", "aPassword");
+        Pineapple votee = pineappleFactory.createPineapple("anOtherName", "anOtherPassword");
+        Guess newGuess = Guess.createGuess(voter,votee);
+
+        Assertions.assertThat(newGuess.getClass()).isEqualTo(Guess.class);
+    }
 }
