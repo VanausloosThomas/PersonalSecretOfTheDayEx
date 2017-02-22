@@ -8,10 +8,10 @@ import org.junit.Test;
 /**
  * Created by thomasva on 17/02/2017.
  */
-public class GuessTest {
+public class GuessFactoryTest {
 
     @Test
-    public  void createGuess_returnsGuessClass(){
+    public  void guessFactory_createGuess_returnsGuessClass(){
         PineappleFactory pineappleFactory = new PineappleFactory();
         Pineapple voter = pineappleFactory.createPineapple("aName", "aPassword");
         Pineapple votee = pineappleFactory.createPineapple("anOtherName", "anOtherPassword");
